@@ -1,0 +1,26 @@
+#!/bin/env python3
+
+import datetime
+import time
+import os
+import subprocess
+import re
+
+while True:
+    (out,err) = subprocess.Popen('acpi', stdout=subprocess.PIPE, shell=True).communicate()
+    
+    batt_str = out.decode('utf-8')
+    batt_perc= re.search(r'[0-9]+%', batt_str).group(0)
+
+    f = open('.battery_history', 'r')
+    for l in f.readlines():
+        lastline = l
+    f.close()
+
+    if batt_perc not in lastline:
+
+        f = open('.battery_history', 'a')
+        f.write(str(datetime.datetime.now()) + str(" ") + batt_perc + '\n')
+        f.close()
+    
+    time.sleep(30) # in seconds
