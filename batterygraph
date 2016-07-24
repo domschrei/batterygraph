@@ -54,6 +54,10 @@ for line in f.readlines():
             if match is not None:
                 values += [match.group(1)]
 
+if not timestamps or len(timestamps) < 2:
+    print("Error: There are not enough data points for the specified range.")
+    exit()
+
 formatter = dates.DateFormatter('%H:%M')
 
 fig,ax = plt.subplots()
