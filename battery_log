@@ -5,6 +5,10 @@ import time
 import os
 import subprocess
 import re
+from os.path import expanduser
+
+filepath = expanduser('~') + '/.battery_history'
+os.system('touch ' + filepath)
 
 while True:
     (out,err) = subprocess.Popen('acpi', stdout=subprocess.PIPE, shell=True).communicate()
@@ -12,14 +16,15 @@ while True:
     batt_str = out.decode('utf-8')
     batt_perc= re.search(r'[0-9]+%', batt_str).group(0)
 
-    f = open('.battery_history', 'r')
+    f = open(filepath, 'r')
+    lastline = ""
     for l in f.readlines():
         lastline = l
     f.close()
 
     if batt_perc not in lastline:
 
-        f = open('.battery_history', 'a')
+        f = open(filepath, 'a')
         f.write(str(datetime.datetime.now()) + str(" ") + batt_perc + '\n')
         f.close()
     

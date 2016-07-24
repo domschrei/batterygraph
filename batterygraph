@@ -16,7 +16,7 @@ args = parser.parse_args()
 timestamps = []
 values = []
 
-f = open(expanduser("~") + "/script/.battery_history", "r")
+f = open(expanduser("~") + "/.battery_history", "r")
 
 for line in f.readlines():
 
