@@ -2,6 +2,8 @@
 
 Outputs a simple python plot with the recent battery charge history.
 
+![Example plot](example.png)!
+
 ## Prerequisites
 
 * OS: Linux
