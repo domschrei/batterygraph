@@ -9,9 +9,9 @@ import argparse
 from os.path import expanduser
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--range", "-r", help="Sets the range for the battery history being plotted; may be \"hour\" or \"day\" or")
-parser.add_argument("--gliding", "-g", action="store_true", help="Uses a timeframe with a fixed length of one hour/day instead of using the current hour/day")
-parser.add_argument("--output", "-o", help="Write plot into a PNG file instead of opening an interactive window")
+parser.add_argument("--range", "-r", help="Sets the range for the battery history being plotted; may be \"hour\", \"day\", or \"month\"")
+parser.add_argument("--gliding", "-g", action="store_true", help="Uses a timeframe with a fixed length of one hour/day/month instead of using the current hour/day/month")
+parser.add_argument("--output", "-o", help="Write plot into an image file instead of opening an interactive window")
 args = parser.parse_args()
 
 timestamps = []
