@@ -13,7 +13,7 @@ Outputs a simple python plot with the recent battery charge history.
 
 ## Usage
 
-Before being able to plot your battery usage, you need to execute the script `battery_log` as a daemon. Putting it into autostart would be a good idea.
+Before being able to plot your battery usage, you need to execute the script `battery_log` as a background process. Putting it into your system's autostart would be a good idea.
 
 The script then periodically reads the battery charge and logs it. Executing `batterygraph` then yields a plot of your recent battery usage, depending on the given parameters.
 
